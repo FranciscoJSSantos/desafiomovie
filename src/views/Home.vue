@@ -57,7 +57,7 @@ export default {
     const SearchMovies = () => {
       if (search.value != "") {
         fetch(
-          `https://api.themoviedb.org/3/search/movie?api_key=74c36a162fc26c48e695f4508734b27d&query=${search.value}`
+          `https://api.themoviedb.org/3/search/movie?api_key=74c36a162fc26c48e695f4508734b27d&query=${search.value}&language=pt-BR`
         )
           .then((response) => response.json())
           .then((data) => {

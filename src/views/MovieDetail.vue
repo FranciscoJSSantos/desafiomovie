@@ -1,11 +1,88 @@
 <template>
-  <div class="movie-detail">Detail {{ $route.params.id }}</div>
+  <div class="movie-detail">
+    <h2>{{ movie.original_title }}</h2>
+    <p>{{ movie.release_date }}</p>
+    <img
+      :src="'https://image.tmdb.org/t/p/w300/' + movie.poster_path"
+      alt="Movie Poster"
+      class="feature-img"
+    />
+    <p>{{ movie.overview }}</p>
+    <div>
+      <button class="botao-voltar" @click="goBack">Voltar para o início</button>
+    </div>
+  </div>
 </template>
 
 
 <script>
-export default {};
+import { ref, onBeforeMount } from "vue";
+import { useRoute } from "vue-router";
+
+export default {
+  methods: {
+    goBack() {
+      return this.$router.go(-1);
+    },
+  },
+
+  setup() {
+    const movie = ref({});
+    const route = useRoute();
+
+    onBeforeMount(() => {
+      fetch(
+        `https://api.themoviedb.org/3/movie/${route.params.id}?api_key=74c36a162fc26c48e695f4508734b27d&language=pt-BR`
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          movie.value = data;
+        });
+    });
+
+    return {
+      movie,
+    };
+  },
+};
 </script>
 
-<style>
+<style lang="scss">
+.movie-detail {
+  padding: 16px;
+
+  h3 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .featured-img {
+    display: block;
+    max-width: 200px;
+    margin-bottom: 16px;
+  }
+
+  p {
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.4;
+    margin-bottom: 25px;
+  }
+}
+.botao-voltar {
+  width: 88%;
+  max-width: 261px;
+  background-color: #42b883;
+  padding: 12px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 20px;
+  text-transform: uppercase;
+  transition: 0.4;
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+  border: none;
+}
 </style>
