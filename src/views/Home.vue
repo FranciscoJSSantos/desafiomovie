@@ -43,6 +43,23 @@
         </router-link>
       </div>
     </div>
+
+    <div class="movies-list">
+      <div class="movie" v-for="movie in movies" :key="movie.id">
+        <router-link :to="'/movie/' + movie.id" class="movie-link">
+          <div class="product-image">
+            <img
+              :src="'https://image.tmdb.org/t/p/w300/' + movie.poster_path"
+              alt="Movie Poster"
+            />
+          </div>
+          <div class="detail">
+            <p class="y">{{ movie.release_date }}</p>
+            <h3>{{ movie.title }}</h3>
+          </div>
+        </router-link>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -67,6 +84,15 @@ export default {
           });
       }
     };
+    fetch(
+      `https://api.themoviedb.org/3/discover/movie/?sort_by=popularity.desc&api_key=74c36a162fc26c48e695f4508734b27d&page=1&language=pt-BR`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        movies.value = data.results;
+        search.value = "";
+      });
 
     return {
       search,
