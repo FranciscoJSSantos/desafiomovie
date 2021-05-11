@@ -19,7 +19,7 @@ Para a instalação dos requisitos do front-end do projeto VueMovie através do 
 npm install
 ```
 
-O comando npm i instalará todas as dependências necessárias para o funcionamento do sistema.
+O comando instalará todas as dependências necessárias para o funcionamento do sistema.
 
 ## Inicialização do sistema
 Para a inicialização da interface do sistema, navegue até a pasta do projeto e insira o seguinte comando: 
@@ -33,7 +33,8 @@ O comando npm run serve buildará o projeto e o servidor poderá ser acessado at
 ## Trocar API key
 
 * Entrar no componente Home.vue e MovieDetail.vue;
-* Trocar o valor da string pela sua API key: const api_key = "<<api_key>>";
+* Trocar o valor da string pela sua API key;
+* Exemplo: `const api_key = "<<api_key>>";`
 
 ## Páginas
 
@@ -62,5 +63,4 @@ O comando npm run serve buildará o projeto e o servidor poderá ser acessado at
 <b>Página Inicial depois de uma busca</b>
 
 ![Buscar WEB](https://i.imgur.com/1EQd50z.jpg)
-
 
