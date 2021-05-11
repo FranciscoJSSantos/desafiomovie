@@ -9,8 +9,7 @@ Desenvolvedor:
 
 ## API utilizada 
 
-* The Movie Database API;
-* Link [Movie Database API](https://developers.themoviedb.org/3/movies/get-movie-details).
+* [Movie Database API](https://developers.themoviedb.org/3/movies/get-movie-details).
 
 
 ## Instalação dos requisitos
