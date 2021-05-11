@@ -68,11 +68,14 @@ export default {
     //Recebe a lista de dados dos filmes.
     const movies = ref([]);
 
+    //API key
+    const api_key = "74c36a162fc26c48e695f4508734b27d";
+
     //Buscar todos os filmes.
     const SearchMovies = () => {
       if (search.value != "") {
         fetch(
-          `https://api.themoviedb.org/3/search/movie?api_key=74c36a162fc26c48e695f4508734b27d&query=${search.value}&language=pt-BR`
+          `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${search.value}&language=pt-BR`
         )
           .then((response) => response.json())
           .then((data) => {

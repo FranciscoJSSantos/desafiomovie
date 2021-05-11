@@ -34,10 +34,13 @@ export default {
     //Recebe o id do filme.
     const route = useRoute();
 
+    //API key
+    const api_key = "74c36a162fc26c48e695f4508734b27d";
+
     //Busca os dados do filme.
     onBeforeMount(() => {
       fetch(
-        `https://api.themoviedb.org/3/movie/${route.params.id}?api_key=74c36a162fc26c48e695f4508734b27d&language=pt-BR`
+        `https://api.themoviedb.org/3/movie/${route.params.id}?api_key=${api_key}&language=pt-BR`
       )
         .then((response) => response.json())
         .then((data) => {
