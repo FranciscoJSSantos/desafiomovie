@@ -1,11 +1,11 @@
 <template>
-  <div class="movie-detail">
+  <div class="detalhes-filmes">
     <h2>{{ movie.original_title }}</h2>
     <p>{{ movie.release_date }}</p>
     <img
       :src="'https://image.tmdb.org/t/p/w300/' + movie.poster_path"
       alt="Movie Poster"
-      class="feature-img"
+      class="imagem-filme"
     />
     <p>{{ movie.overview }}</p>
     <div>
@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style lang="scss">
-.movie-detail {
+.detalhes-filmes {
   padding: 16px;
 
   h3 {
@@ -58,7 +58,7 @@ export default {
     margin-bottom: 16px;
   }
 
-  .featured-img {
+  .imagem-filme {
     display: block;
     max-width: 200px;
     margin-bottom: 16px;

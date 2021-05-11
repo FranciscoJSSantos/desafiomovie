@@ -1,42 +1,36 @@
 <template>
   <div class="home">
-    <div class="feature-card">
-      <router-link to="/movie/asdasdas">
+    <div class="card">
+      <router-link to="/movie/460465">
         <img
-          src="https://img.ibxk.com.br/2020/11/09/09162913891372.jpg"
+          :src="'https://image.tmdb.org/t/p/w300/w8BVC3qrCWCiTHRz4Rft12dtQF0.jpg'"
           alt="Demon Slayer"
-          class="featured-img"
+          class="imagem-capa"
         />
-        <div class="detail">
-          <h3>Demon Slayer</h3>
-          <p>
-            Em Kimetsu no Yaiba, Tanjiro, um bondoso jovem que ganha a vida
-            vendendo carvão descobre que sua família foi massacrada por um
-            demônio.
-          </p>
+        <div class="detalhes-filmes">
+          <h1>Mortal Kombat</h1>
         </div>
       </router-link>
     </div>
-
-    <form @submit.prevent="SearchMovies()" class="search-box">
+    <form @submit.prevent="SearchMovies()" class="caixa-de-pesquisa">
       <input
         type="text"
-        placeholder="O que você está procurando?"
+        placeholder="Que filme você está procurando?"
         v-model="search"
       />
       <input type="submit" value="Buscar" />
     </form>
 
-    <div class="movies-list">
+    <div class="lista-de-filmes">
       <div class="movie" v-for="movie in movies" :key="movie.id">
-        <router-link :to="'/movie/' + movie.id" class="movie-link">
-          <div class="product-image">
+        <router-link :to="'/movie/' + movie.id" class="link-filme">
+          <div class="imagem-filme">
             <img
               :src="'https://image.tmdb.org/t/p/w300/' + movie.poster_path"
               alt="Movie Poster"
             />
           </div>
-          <div class="detail">
+          <div class="detalhes-filmes">
             <p class="y">{{ movie.release_date }}</p>
             <h3>{{ movie.title }}</h3>
           </div>
@@ -44,16 +38,16 @@
       </div>
     </div>
 
-    <div class="movies-list">
+    <div class="lista-de-filmes">
       <div class="movie" v-for="movie in movies" :key="movie.id">
-        <router-link :to="'/movie/' + movie.id" class="movie-link">
-          <div class="product-image">
+        <router-link :to="'/movie/' + movie.id" class="link-filme">
+          <div class="imagem-filme">
             <img
               :src="'https://image.tmdb.org/t/p/w300/' + movie.poster_path"
               alt="Movie Poster"
             />
           </div>
-          <div class="detail">
+          <div class="detalhes-filmes">
             <p class="y">{{ movie.release_date }}</p>
             <h3>{{ movie.title }}</h3>
           </div>
@@ -105,10 +99,10 @@ export default {
 
 <style lang="scss">
 .home {
-  .feature-card {
+  .card {
     position: relative;
 
-    .featured-img {
+    .imagem-capa {
       display: block;
       width: 100%;
       height: 300px;
@@ -117,7 +111,7 @@ export default {
       position: relative;
       z-index: 0;
     }
-    .detail {
+    .detalhes-filmes {
       position: absolute;
       left: 0;
       right: 0;
@@ -126,16 +120,13 @@ export default {
       padding: 16px;
       z-index: 1;
 
-      h3 {
+      h1 {
         color: #fff;
         margin-bottom: 16px;
       }
-      p {
-        color: #fff;
-      }
     }
   }
-  .search-box {
+  .caixa-de-pesquisa {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -185,7 +176,7 @@ export default {
       }
     }
   }
-  .movies-list {
+  .lista-de-filmes {
     display: flex;
     flex-wrap: wrap;
     margin: 0px 0px;
@@ -196,12 +187,12 @@ export default {
       padding: 16px 8px;
     }
 
-    .movie-link {
+    .link-filme {
       display: flex;
       flex-direction: column;
       height: 100%;
 
-      .product-image {
+      .imagem-filme {
         position: relative;
         display: block;
 
@@ -213,7 +204,7 @@ export default {
         }
       }
 
-      .detail {
+      .detalhes-filmes {
         background-color: #496583;
         padding: 16px 8px;
         flex: 1 1 100%;
