@@ -31,7 +31,7 @@
             />
           </div>
           <div class="detalhes-filmes">
-            <p class="y">{{ movie.release_date }}</p>
+            <p class="ano-lancamento">{{ movie.release_date }}</p>
             <h3>{{ movie.title }}</h3>
           </div>
         </router-link>
@@ -62,9 +62,13 @@ import { ref } from "vue";
 
 export default {
   setup() {
+    //Recebe o valor de busca.
     const search = ref("");
+
+    //Recebe a lista de dados dos filmes.
     const movies = ref([]);
 
+    //Buscar todos os filmes.
     const SearchMovies = () => {
       if (search.value != "") {
         fetch(
@@ -78,6 +82,8 @@ export default {
           });
       }
     };
+
+    //Buscar filmes populares.
     fetch(
       `https://api.themoviedb.org/3/discover/movie/?sort_by=popularity.desc&api_key=74c36a162fc26c48e695f4508734b27d&page=1&language=pt-BR`
     )
@@ -210,7 +216,7 @@ export default {
         flex: 1 1 100%;
         border-radius: 0px 0px 8px 8px;
 
-        .y {
+        .ano-lancamento {
           color: #aaa;
           font-size: 14px;
         }

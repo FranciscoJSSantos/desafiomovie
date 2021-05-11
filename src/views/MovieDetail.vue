@@ -21,15 +21,20 @@ import { useRoute } from "vue-router";
 
 export default {
   methods: {
+    // Método para voltar a página.
     goBack() {
       return this.$router.go(-1);
     },
   },
 
   setup() {
+    //Recebe a lista de dado do filme.
     const movie = ref({});
+
+    //Recebe o id do filme.
     const route = useRoute();
 
+    //Busca os dados do filme.
     onBeforeMount(() => {
       fetch(
         `https://api.themoviedb.org/3/movie/${route.params.id}?api_key=74c36a162fc26c48e695f4508734b27d&language=pt-BR`
